@@ -83,3 +83,9 @@ print("\nTraining Complete!")
 print("\nSummary")
 for r in results:
     print(r)
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+evaluation_path = os.path.join(BASE_DIR, "evaluation.csv")
+evaluation_df = pd.DataFrame(results)
+evaluation_df.to_csv(evaluation_path, index=False)
+print(f"Evaluation saved to: {evaluation_path}")
